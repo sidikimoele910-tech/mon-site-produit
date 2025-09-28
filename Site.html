@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ma Boutique</title>
+  <style>
+    /* 🌈 Style global bleu-vert */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #0077b6, #00b894);
+      color: white;
+    }
+
+    header {
+      background: rgba(0,0,0,0.6);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: yellow;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .product, .profil-img {
+      background: rgba(255,255,255,0.1);
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .img-large {
+      max-width: 80%;
+      border-radius: 15px;
+    }
+
+    footer {
+      text-align: center;
+      background: rgba(0,0,0,0.7);
+      padding: 1rem;
+      margin-top: 20px;
+    }
+
+    .marquee {
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      animation: scroll 10s linear infinite;
+    }
+
+    .marquee p {
+      display: inline-block;
+      font-size: 20px;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
+    }
+
+    /* 🌟 Cacher les pages au début */
+    section {
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bienvenue sur Ma Boutique 🛍️</h1>
+    <nav>
+      <a href="#" onclick="showPage('accueil')">Accueil</a>
+      <a href="#" onclick="showPage('profil')">Profil</a>
+      <a href="#" onclick="showPage('produits')">Produits</a>
+      <a href="#" onclick="showPage('contact')">Contact</a>
+    </nav>
+  </header>
+
+  <!-- 📌 Page Accueil -->
+  <section id="accueil" class="active">
+    <main>
+      <h2>Page d’accueil</h2>
+      <p>Ici tu trouveras nos meilleurs produits et ton profil personnel.</p>
+      <img src="946389309192663278_vdm" alt="Image Accueil" class="img-large">
+    </main>
+  </section>
+
+  <!-- 📌 Page Profil -->
+  <section id="profil">
+    <main class="profil">
+      <h2>Moi en 4x4</h2>
+      <div class="grid">
+        <img src="IMG_20250220_185637.jpg" alt="Moi" class="profil-img">
+        <img src="IMG_20250220_185637.jpg" alt="Moi" class="profil-img">
+        <img src="IMG_20250220_185637.jpg" alt="Moi" class="profil-img">
+        <img src="IMG_20250220_185637.jpg" alt="Moi" class="profil-img">
+      </div>
+
+      <div class="marquee">
+        <p>⭐ Développeur | ⭐ Entrepreneur | ⭐ Passionné d’e-commerce | ⭐ Ambitieux ⭐</p>
+      </div>
+    </main>
+  </section>
+
+  <!-- 📌 Page Produits -->
+  <section id="produits">
+    <main>
+      <h2>Liste de Produits</h2>
+      <div class="grid">
+        <div class="product">
+          <img src="1721151085137-1.jpg" alt="Produit 1">
+          <h3>Produit 1</h3>
+          <p>Prix : 10 000 FCFA</p>
+          <p>Expiration : 01/01/2026</p>
+        </div>
+
+        <div class="product">
+          <img src="1721217985721.jpg" alt="Produit 2">
+          <h3>Produit 2</h3>
+          <p>Prix : 15 000 FCFA</p>
+          <p>Expiration : 01/06/2026</p>
+        </div>
+
+        <div class="product">
+          <img src="IMG-20250517-WA0088.jpg" alt="Produit 3">
+          <h3>Produit 3</h3>
+          <p>Prix : 20 000 FCFA</p>
+          <p>Expiration : 12/12/2026</p>
+        </div>
+
+        <div class="product">
+          <img src="IMG-20250517-WA0107.jpg" alt="Produit 4">
+          <h3>Produit 4</h3>
+          <p>Prix : 7 500 FCFA</p>
+          <p>Expiration : 05/05/2026</p>
+        </div>
+
+        <div class="product">
+          <img src="IMG-20250517-WA0126.jpg" alt="Produit 5">
+          <h3>Produit 5</h3>
+          <p>Prix : 50 000 FCFA</p>
+          <p>Expiration : 31/12/2026</p>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <!-- 📌 Page Contact -->
+  <section id="contact">
+    <main>
+      <h2>Mes Coordonnées</h2>
+      <p>Téléphone : 📞 690040966</p>
+      <p>Email : sidikimoele910@gmail.com</p>
+    </main>
+  </section>
+
+  <footer>
+    <p>© 2025 - Ma Boutique</p>
+  </footer>
+
+  <script>
+    // 🔄 Fonction pour naviguer entre les pages
+    function showPage(pageId) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(pageId).classList.add("active");
+    }
+  </script>
+</body>
+</html>
